@@ -5,6 +5,7 @@ use AdamWathan\BootForms\Elements\FormGroup;
 use AdamWathan\BootForms\Elements\GroupWrapper;
 use AdamWathan\BootForms\Elements\HelpBlock;
 use AdamWathan\BootForms\Elements\InputGroup;
+use AdamWathan\BootForms\Elements\SelectGroup;
 use AdamWathan\Form\FormBuilder;
 
 class BasicFormBuilder
@@ -171,6 +172,12 @@ class BasicFormBuilder
             $control->value($value);
         }
 
+        return $this->formGroup($label, $name, $control);
+    }
+	
+	public function selectGroup($label, $name, $options = [])
+    {
+        $control = new SelectGroup($name, $options);
         return $this->formGroup($label, $name, $control);
     }
 
