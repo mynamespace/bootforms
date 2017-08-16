@@ -175,9 +175,12 @@ class BasicFormBuilder
         return $this->formGroup($label, $name, $control);
     }
 	
-	public function selectGroup($label, $name, $options = [])
+	public function selectGroup($label, $name, $options = [], $value = null)
     {
         $control = new SelectGroup($name, $options);
+		if (!is_null($value) || !is_null($value = $this->getValueFor($name))) {
+            $control->select($value);
+        }
         return $this->formGroup($label, $name, $control);
     }
 
